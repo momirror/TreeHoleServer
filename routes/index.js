@@ -1,6 +1,7 @@
 const router = require('koa-router')()
-const userdb = require('../database/user')
+const userdb = require('../database/UserDB')
 const User = require('../model/User');
+
 
 router.get('/', async (ctx, next) => {
 
