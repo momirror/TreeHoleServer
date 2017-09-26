@@ -13,6 +13,18 @@ describe("SecretDB Spec", function(){
             expect(2).toBeGreaterThan(3);
         });
 
+
+        SecretDB.findLatestSecretsWithCount(300).then(function (secrets) {
+            console.log('find secrets====================== ');
+            for(var i = 0;i < secrets.length;i++){
+                console.log('id: '+secrets[i].id);
+            }
+        }).catch(function (err) {
+            console.log('err:'+err);
+            expect(2).toBeGreaterThan(3);
+        });
+
+
         SecretDB.deleteSecret(11).then(function (secr) {
             expect(22).toBeGreaterThan(3);
         }).catch(function () {
