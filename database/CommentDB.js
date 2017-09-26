@@ -32,8 +32,26 @@ let findCommentById = async (id) => {
     if(comments.length > 0){
         return comments[0];
     } else {
-        throw 'no found comment';
+        return null;
     }
+}
+
+//根据owner_id查找Comment
+let findCommentByOwnerId = async (ownerId) => {
+    let sql = `
+    SELECT * from comments
+      where owner_id="${ownerId}"`;
+    let comments =  await db.query(sql);
+    return comments;
+}
+
+//根据secret_id查找Comment
+let findCommentBySecretId = async (secretId) => {
+    let sql = `
+    SELECT * from comments
+      where secret_id="${secretId}"`;
+    let comments =  await db.query(sql);
+    return comments;
 }
 
 //根据id删除Comment
@@ -44,4 +62,4 @@ let deleteComment = async (id) => {
 }
 
 
-module.exports = {addComment,findCommentById,deleteComment};
+module.exports = {addComment,findCommentById,findCommentByOwnerId,findCommentBySecretId,deleteComment};

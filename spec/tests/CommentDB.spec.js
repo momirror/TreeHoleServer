@@ -16,9 +16,27 @@ describe("CommentDB Spec", function(){
         });
 
         CommentDB.findCommentById(1).then(function (comment) {
-            console.log('commentById: '+ comment.id);
-            console.log('find comment: ' + Object.getOwnPropertyNames(comment));
+
+            if(comment != null){
+                console.log('commentById: '+ comment.id);
+                console.log('find comment: ' + Object.getOwnPropertyNames(comment));
+            }
+
+        }).catch(function (err) {
+            console.log('err:--------------------------------'+err);
+            expect(2).toBeGreaterThan(3);
+        });
+
+        CommentDB.findCommentByOwnerId(2).then(function (comments) {
+            console.log('comments: '+ comments);
         }).catch(function () {
+            expect(2).toBeGreaterThan(3);
+        });
+
+        CommentDB.findCommentBySecretId(2).then(function (comments) {
+            console.log('comments by secretId: '+ comments);
+        }).catch(function (err) {
+            console.log('err:--------------------------------'+err);
             expect(2).toBeGreaterThan(3);
         });
 
