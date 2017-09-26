@@ -1,10 +1,9 @@
 class Comment{
-    constructor(commentId,ownerId,secretId,content,time){
-        this.secretId = secretId;
+    constructor(ownerId,secretId,content,timestamp){
         this.ownerId = ownerId;
         this.secretId = secretId;
         this.content = content;
-        this.time = timestamp;
+        this.timestamp = timestamp;
     }
 }
 
