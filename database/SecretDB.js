@@ -44,7 +44,7 @@ let deleteSecret = async (id) => {
 
 //查询最新的count个数据
 let findLatestSecretsWithCount = async (count)=> {
-    let sql = `select * from comments order by id desc limit ?`;
+    let sql = `select * from secrets order by id desc limit ?`;
     let results = await db.query(sql,count);
 
     //因为上面查出来的数据是逆序的，这里再逆一下，转回正序
